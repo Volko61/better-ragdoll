@@ -511,6 +511,9 @@ def edit():
     scene.render.resolution_x, scene.render.resolution_y = 1920, 1080
     scene.render.resolution_percentage = 100
     scene.frame_start, scene.frame_end = 1, total
+    # The frames are already tone mapped by the Shots scene.
+    scene.view_settings.view_transform = 'Standard'
+    scene.view_settings.look = 'None'
     ed = scene.sequence_editor_create()
     for s in list(ed.strips):
         ed.strips.remove(s)
@@ -524,8 +527,14 @@ def edit():
         snd = ed.strips.new_sound("Voice%d" % (i + 1), os.path.join(VOICE, "line_%d.mp3" % (i + 1)), 2, v)
         snd.volume = 1.0
 
+    # Blender's UI font; the text strip default is monospace.
+    font_path = os.path.join(bpy.utils.system_resource('DATAFILES', path="fonts"), "Inter.woff2")
+    font = bpy.data.fonts.load(font_path, check_existing=True) if os.path.exists(font_path) else None
+
     def text(t, start, end, x, y, size, color=WHITE, anchor='CENTER', box=True, bold=False, ch=4):
         st = ed.strips.new_effect("T", 'TEXT', ch, start, length=end - start)
+        if font:
+            st.font = font
         st.text = t
         st.font_size = size
         st.color = color
@@ -598,17 +607,20 @@ def edit():
     r.use_overwrite = True
     bpy.ops.render.render(animation=True, scene=scene.name)
 
-    # Listing images from the edited frames.
+    # Listing images from the edited frames. A still render of a scene that isn't the
+    # context scene ignores frame_set, so each image is a one-frame animation render.
     r.image_settings.media_type = 'IMAGE'
     r.image_settings.file_format = 'PNG'
+    r.filepath = os.path.join(OUT, "still_")
     for name, frame in (("featured_1920x1080.png", s[4][0] + 75),
                         ("preview_zero_gravity.png", s[3][1] - 30),
                         ("preview_stairs.png", s[4][0] + 120),
                         ("preview_impact.png", s[5][2] + 95),
                         ("preview_title.png", s[0][0] + 100)):
-        scene.frame_set(frame)
-        r.filepath = os.path.join(OUT, name)
-        bpy.ops.render.render(write_still=True, scene=scene.name)
+        scene.frame_start = scene.frame_end = frame
+        bpy.ops.render.render(animation=True, scene=scene.name)
+        os.replace(r.frame_path(frame=frame), os.path.join(OUT, name))
+    scene.frame_start, scene.frame_end = 1, total
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(HERE, "demo.blend"))
 
 
