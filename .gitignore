@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.blend1
+dist/
+promo/showcase.blend
+promo/output/check_*.png
+
+# Reference material, not ours to redistribute
+Improving ragdolls forever.mp4
+transcript.txt
