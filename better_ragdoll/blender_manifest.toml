@@ -1,7 +1,7 @@
 schema_version = "1.0.0"
 
 id = "better_ragdoll"
-version = "1.0.0"
+version = "1.0.1"
 name = "Better Ragdoll"
 tagline = "Ragdolls with soft joint limits and neutral body posture tension"
 maintainer = "Volko61"

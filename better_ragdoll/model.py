@@ -313,7 +313,7 @@ def build_model(obj, settings):
                 pts.extend(points.get(bn, ()))
             if len(pts) >= 8:
                 ds = sorted(_dist_point_segment(p, body.head, body.end) for p in pts)
-                radius = ds[int(len(ds) * 0.5)]
+                radius = ds[int(len(ds) * 0.75)]
                 radius = min(hi_r * 1.3, max(lo_r * 0.7, radius))
             else:
                 radius = presets.RADIUS_RATIO.get(body.role, 0.2) * body.length

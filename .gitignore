@@ -8,3 +8,8 @@ promo/output/check_*.png
 # Reference material, not ours to redistribute
 Improving ragdolls forever.mp4
 transcript.txt
+
+# Demo render intermediates (demo.blend embeds the Mixamo character)
+promo/frames/
+promo/demo.blend
+promo/output/demo_check/

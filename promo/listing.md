@@ -1,13 +1,19 @@
 # Better Ragdoll: extensions.blender.org listing
 
-## Description (paste in "Write")
-
-Better Ragdoll turns any humanoid armature into a ragdoll and bakes the result to an action. Compared with a classic game ragdoll, its falls look heavier and more human.
+Better Ragdoll is an extension that brings a more realistic radgoll in Blender.
 
 Most ragdolls only have **hard joint limits**: a joint swings at full speed and stops dead at its limit, so the body flails and bounces off its own joints. Better Ragdoll adds two things:
 
-- **Soft limits.** Near the end of its range, each joint meets a progressive spring and extra damping, so it slows down before reaching the limit. This works like muscles, ligaments and tendons reaching their maximum stretch.
-- **Neutral body posture tension.** A gentle pull brings every joint toward a relaxed posture, loosely based on NASA's microgravity *Neutral Body Posture*: hips and knees bent, shoulders rolled forward, elbows bent, feet relaxed, head tilted forward. With gravity at 0, the character drifts into this pose. With gravity on, it gives the body weight and makes it settle in natural resting poses.
+**Soft limits:** Near the end of its range, each joint meets a progressive spring and extra damping, so it slows down before reaching the limit. This works like muscles, ligaments and tendons reaching their maximum stretch.
+
+**Neutral body posture tension:** A gentle pull brings every joint toward a relaxed posture, loosely based on NASA's microgravity *Neutral Body Posture*: hips and knees bent, shoulders rolled forward, elbows bent, feet relaxed, head tilted forward. With gravity at 0, the character drifts into this pose. With gravity on, it gives the body weight and makes it settle in natural resting poses.
+
+### How to use
+
+1. Select your armature and open the **Ragdoll** tab in the 3D View sidebar.
+2. Click **Detect Bones**, then **Preview Neutral Pose** to check the setup.
+3. Pick a release frame, an optional impact and a collider collection.
+4. Click **Simulate & Bake**.
 
 ### Features
 
@@ -20,18 +26,10 @@ Most ragdolls only have **hard joint limits**: a joint swings at full speed and 
 - **Automatic body setup.** Masses follow human body-segment proportions, and capsule sizes are measured from the skinned mesh.
 - **Clean bake.** The result goes to a new action. One click restores the original animation and bone constraints.
 
-### How to use
-
-1. Select your armature and open the **Ragdoll** tab in the 3D View sidebar.
-2. Click **Detect Bones**, then **Preview Neutral Pose** to check the setup.
-3. Pick a release frame, an optional impact and a collider collection.
-4. Click **Simulate & Bake**.
-
-Self-contained: pure Python, no external dependencies, no internet access.
 
 ## Support URL
 
-https://github.com/Volko61/better-ragdoll/issues
+  https://github.com/Volko61/better-ragdoll/issues
 
 ## Initial Version: release notes (paste in "Write")
 

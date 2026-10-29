@@ -1,0 +1,13 @@
+{
+  "voice_id": "onwK4e9ZLuTAKqWW03F9",
+  "model_id": "eleven_multilingual_v2",
+  "lines": [
+    "This is Better Ragdoll: a free Blender extension that makes ragdolls fall like real bodies, not like puppets.",
+    "Most ragdolls only use hard joint limits. Every joint swings at full speed, then stops dead at its limit, so the body flops around and bounces off its own joints.",
+    "Better Ragdoll adds soft limits. Near the end of its range, each joint meets growing resistance, like muscles and tendons stretching, so it slows down before it gets there.",
+    "It also adds a gentle pull toward a relaxed posture, inspired by NASA's neutral body posture. In zero gravity, the classic ragdoll just drifts in its T-pose, while Better Ragdoll curls into the pose a body takes when every muscle is relaxed.",
+    "Now push both down the stairs. The classic ragdoll flails like a puppet. Better Ragdoll tumbles with weight, and comes to rest in a believable pose.",
+    "Impacts also kick the shoulders and hips. Arms fly with the push, legs swing the other way, with a touch of randomness so no two falls look the same.",
+    "Setup takes one click. Detect the bones, pick a release frame and an impact, then simulate and bake to an action. Better Ragdoll: free and open source, for Blender 4.2 and up."
+  ]
+}
